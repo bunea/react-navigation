@@ -304,16 +304,12 @@ class Header extends React.PureComponent<Props, State> {
     const { options } = this.props.getScreenDetails(scene);
     const headerStyle = options.headerStyle;
     const appBarHeight = Platform.OS === 'ios' ? (isLandscape ? 32 : 44) : 56;
-    const containerStyles = [
-      {
-        height: appBarHeight,
-      },
-      headerStyle,
-    ];
+    const innerContainerStyle = { height: appBarHeight };
+    const containerStyles = [styles.container, headerStyle];
 
     return (
       <SafeAreaView
-        style={styles.container}
+        style={containerStyles}
         forceInset={{ top: 'always', bottom: 'never' }}
       >
         <Animated.View {...rest} style={containerStyles}>
